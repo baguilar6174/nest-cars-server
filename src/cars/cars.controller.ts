@@ -9,9 +9,11 @@ import {
   Post,
 } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import { CreateDto, UpdateDto } from './dtos';
 import { Car } from './interfaces/car.interface';
 
 @Controller('cars')
+// @UsePipes(ValidationPipe)
 export class CarsController {
   constructor(private readonly carsService: CarsService) {}
 
@@ -24,15 +26,19 @@ export class CarsController {
     return this.carsService.findById(id);
   }
   @Post()
-  create(@Body() body: any) {
-    return body;
+  // @UsePipes(ValidationPipe)
+  create(@Body() createCarDto: CreateDto): Car {
+    return this.carsService.create(createCarDto);
   }
   @Patch(':id')
-  update(@Param('id', ParseUUIDPipe) id: string, @Body() body: any) {
-    return { body, id };
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateCarDto: UpdateDto,
+  ): Car {
+    return this.carsService.update(id, updateCarDto);
   }
   @Delete(':id')
-  delete(@Param('id', ParseUUIDPipe) id: string) {
-    return { id };
+  delete(@Param('id', ParseUUIDPipe) id: string): Car {
+    return this.carsService.delete(id);
   }
 }
