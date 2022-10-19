@@ -1,8 +1,8 @@
 {
   "name": "car-dealership",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "This Rest API allows CRUD of in-memory carts, contains the definitions and basic concepts used in Nest.",
+  "author": "Bryan Aguilar",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
