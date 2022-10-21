@@ -23,6 +23,18 @@ Install dependencies
 $ yarn
 ```
 
+You need Nest CLI
+
+```bash
+$ npm i -g @nestjs/cli
+```
+
+Configure and start Database
+
+```bash
+$ docker-compose up -d
+```
+
 ## Running the app
 
 ```bash
@@ -76,6 +88,7 @@ http://localhost:3000/cars/<id>
 
 - Nest JS
 - Typescript
+- MongoDB
 
 ### What I learned
 
