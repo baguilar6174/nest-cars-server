@@ -39,6 +39,10 @@ $ yarn start:prod
 ## Endpoints
 
 ```bash
+# You need populate the fake DB
+# [post] - Populate data
+http://localhost:3000/seed
+
 # [get] - Get all cars
 http://localhost:3000/cars
 
