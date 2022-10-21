@@ -10,6 +10,7 @@ async function bootstrap(): Promise<void> {
       forbidNonWhitelisted: true, // validate only DTO data with error messages
     }),
   );
+  app.setGlobalPrefix('api/v1');
   await app.listen(3000);
 }
 bootstrap();
