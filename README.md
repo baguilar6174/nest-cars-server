@@ -50,37 +50,7 @@ $ yarn start:prod
 
 ## Endpoints
 
-```bash
-# You need populate the fake DB
-# [post] - Populate data
-http://localhost:3000/seed
-
-# [get] - Get all cars
-http://localhost:3000/cars
-
-# [get] - Get car by id
-http://localhost:3000/cars/<id>
-
-# [post] - Create car
-# body
-# {
-#     "brand": "Mazda",
-#     "model": "6"
-# }
-http://localhost:3000/cars
-
-# [patch] - Update car
-# body
-# {
-#     "brand": "Mazda",
-#     "model": "6"
-# }
-http://localhost:3000/cars/<id>
-
-# [delete] - Delete car
-http://localhost:3000/cars/<id>
-
-```
+You can find all endpoints here
 
 ## My process
 
@@ -89,6 +59,8 @@ http://localhost:3000/cars/<id>
 - Nest JS
 - Typescript
 - MongoDB
+- Docker
+- Docker Compose
 
 ### What I learned
 
@@ -107,7 +79,17 @@ http://localhost:3000/cars/<id>
   - Modules
 - Nest CLI
 - Restful endpoints
-- DTOs
+- DTOs (Data Transfer Object)
+- Class Validator
+- Class Transformer
+- Follow the DRY principle (Don't repeat yourself)
+- Some useful Class Validator decorators
+- Common errors when using linked modules
+- Problems with dependency injection of external modules
+- Docker and Docker Compose
+- Connecting container to filesystem (to keep database data)
+- Schemas
+- Models
 
 ## Stay in touch
 

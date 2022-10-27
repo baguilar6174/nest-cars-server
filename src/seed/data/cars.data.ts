@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Car } from 'src/cars/interfaces/car.interface';
 import { v4 as uuid } from 'uuid';
 
-export const CARS_DATA: Car[] = [
+export const CARS_DATA: any[] = [
   {
     id: uuid(),
     brand: 'Toyota',
