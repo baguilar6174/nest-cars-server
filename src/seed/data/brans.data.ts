@@ -5,22 +5,22 @@ import { v4 as uuid } from 'uuid';
 export const BRANS_DATA: Brand[] = [
   {
     id: uuid(),
-    name: 'Toyota',
+    name: 'toyota',
     createdAt: new Date().getTime(),
   },
   {
     id: uuid(),
-    name: 'Chevrolet',
+    name: 'chevrolet',
     createdAt: new Date().getTime(),
   },
   {
     id: uuid(),
-    name: 'Honda',
+    name: 'honda',
     createdAt: new Date().getTime(),
   },
   {
     id: uuid(),
-    name: 'Jeep',
+    name: 'audi',
     createdAt: new Date().getTime(),
   },
 ];

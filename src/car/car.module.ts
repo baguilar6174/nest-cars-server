@@ -7,7 +7,7 @@ import { Car, CarSchema } from './entities/car.entity';
 @Module({
   controllers: [CarController],
   providers: [CarService],
-  exports: [CarService],
+  exports: [MongooseModule],
   imports: [
     MongooseModule.forFeature([
       {

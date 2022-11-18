@@ -1,16 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { BrandService } from 'src/brand/brand.service';
-import { CarService } from 'src/car/car.service';
-import { BRANS_DATA } from './data';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+
+import { CreateCarDto } from 'src/car/dto/create-car.dto';
+import { Car } from 'src/car/entities/car.entity';
+import { CARS_DATA } from './data';
 
 @Injectable()
 export class SeedService {
-  constructor(
-    private readonly carService: CarService,
-    private readonly brandService: BrandService,
-  ) {}
+  constructor(@InjectModel(Car.name) private readonly carModel: Model<Car>) {}
   create(): string {
-    this.brandService.populateBrands(BRANS_DATA);
+    CARS_DATA.map(async ({ id, model }): Promise<void> => {
+      const createCarDto: CreateCarDto = {
+        name: model,
+        nro: id,
+      };
+      await this.carModel.create(createCarDto);
+    });
     return 'Seed created!';
   }
 }

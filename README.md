@@ -90,6 +90,10 @@ You can find all endpoints here
 - Connecting container to filesystem (to keep database data)
 - Schemas
 - Models
+- SEED to populate database
+- Results pagination
+- DTOs for Query parameters
+- DTO transformations
 
 ## Stay in touch
 
