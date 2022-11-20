@@ -50,7 +50,13 @@ $ yarn start:prod
 
 ## Endpoints
 
-You can find all endpoints here
+You can find all endpoints here:
+
+```
+# Populate DB
+
+http://localhost:3000/api/v1/seed
+```
 
 ## My process
 
@@ -94,6 +100,9 @@ You can find all endpoints here
 - Results pagination
 - DTOs for Query parameters
 - DTO transformations
+- Dockerization (Dockerfile)
+- Environment variables
+- Deploys
 
 ## Stay in touch
 

@@ -7,7 +7,9 @@ import {
   Param,
   Delete,
   HttpCode,
+  Query,
 } from '@nestjs/common';
+import { PaginationDto } from 'src/common/dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id.pipe';
 import { CarService } from './car.service';
 import { CreateCarDto } from './dto/create-car.dto';
@@ -26,8 +28,8 @@ export class CarController {
   }
 
   @Get()
-  findAll() {
-    return this.carService.findAll();
+  findAll(@Query() paginationDto: PaginationDto) {
+    return this.carService.findAll(paginationDto);
   }
 
   @Get(':search')

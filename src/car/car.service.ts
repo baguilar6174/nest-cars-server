@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
+import { PaginationDto } from 'src/common/dto';
 import { CreateCarDto } from './dto/create-car.dto';
 import { UpdateCarDto } from './dto/update-car.dto';
 import { Car } from './entities/car.entity';
@@ -24,8 +25,9 @@ export class CarService {
     }
   }
 
-  async findAll() {
-    return this.carModel.find();
+  async findAll(paginationDto: PaginationDto) {
+    const { limit = 5, offset = 0 } = paginationDto;
+    return this.carModel.find().limit(limit).skip(offset);
   }
 
   async findOne(search: string): Promise<Car> {

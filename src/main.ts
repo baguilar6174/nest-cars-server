@@ -8,6 +8,10 @@ async function bootstrap(): Promise<void> {
     new ValidationPipe({
       whitelist: true, // clean data and allows DTO data
       forbidNonWhitelisted: true, // validate only DTO data with error messages
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
     }),
   );
   app.setGlobalPrefix('api/v1');

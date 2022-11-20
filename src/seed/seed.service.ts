@@ -9,14 +9,17 @@ import { CARS_DATA } from './data';
 @Injectable()
 export class SeedService {
   constructor(@InjectModel(Car.name) private readonly carModel: Model<Car>) {}
-  create(): string {
+  async create(): Promise<string> {
+    await this.carModel.deleteMany({}); // delete * from cars
+    const carsToInsert: CreateCarDto[] = [];
     CARS_DATA.map(async ({ id, model }): Promise<void> => {
       const createCarDto: CreateCarDto = {
         name: model,
         nro: id,
       };
-      await this.carModel.create(createCarDto);
+      carsToInsert.push(createCarDto);
     });
+    await this.carModel.insertMany(carsToInsert);
     return 'Seed created!';
   }
 }
