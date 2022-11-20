@@ -14,7 +14,7 @@ async function bootstrap(): Promise<void> {
       },
     }),
   );
-  app.setGlobalPrefix('api/v1');
-  await app.listen(3000);
+  app.setGlobalPrefix(process.env.API_PREFIX);
+  await app.listen(process.env.PORT);
 }
 bootstrap();

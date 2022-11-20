@@ -35,6 +35,10 @@ Configure and start Database
 $ docker-compose up -d
 ```
 
+Clone `.env.template` file and rename to `.env`
+
+Complete environment variables
+
 ## Running the app
 
 ```bash
@@ -102,6 +106,7 @@ http://localhost:3000/api/v1/seed
 - DTO transformations
 - Dockerization (Dockerfile)
 - Environment variables
+- Configuration Module
 - Deploys
 
 ## Stay in touch

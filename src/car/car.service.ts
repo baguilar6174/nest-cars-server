@@ -4,8 +4,11 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
+
 import { PaginationDto } from 'src/common/dto';
 import { CreateCarDto } from './dto/create-car.dto';
 import { UpdateCarDto } from './dto/update-car.dto';
@@ -13,7 +16,10 @@ import { Car } from './entities/car.entity';
 
 @Injectable()
 export class CarService {
-  constructor(@InjectModel(Car.name) private readonly carModel: Model<Car>) {}
+  constructor(
+    @InjectModel(Car.name) private readonly carModel: Model<Car>,
+    private readonly configService: ConfigService,
+  ) {}
 
   async create(createCarDto: CreateCarDto) {
     createCarDto.name = createCarDto.name.toLowerCase();
@@ -26,7 +32,8 @@ export class CarService {
   }
 
   async findAll(paginationDto: PaginationDto) {
-    const { limit = 5, offset = 0 } = paginationDto;
+    const defaultLimit = this.configService.get<number>('defaultLimit');
+    const { limit = defaultLimit, offset = 0 } = paginationDto;
     return this.carModel.find().limit(limit).skip(offset);
   }
 
