@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  carsapp:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nest-cars-docker
+    container_name: carsapp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - '${PORT}:${PORT}'
+    # working_dir: /var/www/cars
+    environment:
+      MONGO_DB: ${MONGO_DB}
+      PORT: ${PORT}
+      DEFAULT_LIMIT: ${DEFAULT_LIMIT}
+    # volumes:
+    #   - ./:/var/www/cars
+
+  db:
+    image: mongo:5
+    container_name: mongo-cars
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: nest-cars
+    volumes:
+      - ./mongo:/data/db

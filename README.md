@@ -62,6 +62,22 @@ You can find all endpoints here:
 http://localhost:3000/api/v1/seed
 ```
 
+**Production Build**
+
+1. Create `.env.prod` file
+2. Complete prod variables
+3. Create new image
+
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
+
+4. Run docker images
+
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up -d
+```
+
 ## My process
 
 ### Built with
