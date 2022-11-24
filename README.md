@@ -7,7 +7,7 @@
 
 ## Description
 
-This Rest API allows CRUD of in-memory carts, contains the definitions and basic concepts used in Nest.
+This Rest API allows CRUD of cars using Mongo DB, contains the definitions and basic concepts used in Nest.
 
 ## Installation
 
