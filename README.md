@@ -54,7 +54,7 @@ $ yarn start:prod
 
 ## Endpoints
 
-You can find all endpoints here:
+You can find all endpoints here [Postman Collention](./media/car-dealership.postman_collection.json)
 
 ```
 # Populate DB
